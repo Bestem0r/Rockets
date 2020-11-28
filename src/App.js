@@ -65,7 +65,7 @@ class App extends React.Component {
 
     getSettings = (res) => {
         if (!(isNaN(parseInt(res.data.countdown)))) {
-            console.log("Setting countdown")
+            console.log("Setting countdown to: " + parseInt(res.data.countdown));
             this.setState({ settings: { countdown: parseInt(res.data.countdown) }})
         }
         if (res.data.completed_state !== "") {
@@ -184,9 +184,9 @@ class App extends React.Component {
                 document.getElementById("rocket").style.display = "block";
                 this.setState({info_text: "Rocket launching in..."})
 
-                var count = this.state.settings.countdown;
+                var count = parseInt(this.state.settings.countdown);
                 launchButton.innerHTML = count;
-                for (var i = 1; i <= this.state.settings.countdown; i ++) {
+                for (var i = 1; i <= parseInt(this.state.settings.countdown); i ++) {
                     setTimeout(() => {
                         count --;
                         launchButton.innerHTML = count;
