@@ -65,7 +65,6 @@ class App extends React.Component {
 
     getSettings = (res) => {
         if (!(isNaN(parseInt(res.data.countdown)))) {
-            console.log("Setting countdown to: " + parseInt(res.data.countdown));
             this.setState({ settings: { countdown: parseInt(res.data.countdown) }})
         }
         if (res.data.completed_state !== "") {
